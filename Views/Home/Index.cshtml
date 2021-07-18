@@ -1,0 +1,344 @@
+﻿@using System.Text.RegularExpressions
+@model richmedical.ViewModel.HomeViewModel
+@{
+
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rich Medical</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/Content/Public/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Public/style.css" />
+    <link rel="stylesheet" href="~/Content/Public/responsive.css" />
+    <link rel="stylesheet" href="~/Content/Public/color-switcher-design.css" />
+    <link rel="stylesheet" href="~/Content/Public/color-themes/default-theme.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Rubik:wght@300;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/images/favicon.png" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Main Header-->
+        @Html.Partial("_NavBar")
+        <!-- End Main Header -->
+        <!-- Sidebar Cart Item -->
+        @Html.Partial("_SideBarInfo")
+        <!-- END sidebar widget item -->
+        <!-- Banner Section -->
+        <section class="banner-section">
+            <div class="main-slider-carousel owl-carousel owl-theme">
+
+                <!-- Slide -->
+                <div class="slide" style="        background-image: url(/Content/images/main-slider/image-1.jpg)">
+                    <div class="icon-layer-two" style="        background-image: url(/Content/images/main-slider/circle-2.png)"></div>
+                    <div class="icon-layer-three" style="        background-image: url(/Content/images/main-slider/circle-2.png)"></div>
+                    <div class="icon-layer-four" style="        background-image: url(/Content/images/main-slider/circle-3.png)"></div>
+                    <div class="auto-container">
+                        <div class="row clearfix">
+
+                            <!-- Content Column -->
+                            <div class="content-column col-lg-7 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <h1>Medical Consulting <br> Offering Services</h1>
+                                    <div class="text">With Britain's largest network of private hospitals, <br> fast access to treatment</div>
+                                    <div class="btns-box">
+                                        <a href="about.html" class="theme-btn btn-style-one"><span class="txt">Explore all servicees</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Column -->
+                            <div class="image-column col-lg-5 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <div class="icon-layer-one" style="background-image: url(/images/main-slider/pattern-1.png)"></div>
+                                    <div class="image">
+                                        <img src="~/Content/Public/Images/Slider1.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+                <div class="slide" style="background-image: url(/Content/images/main-slider/image-1.jpg)">
+                    <div class="icon-layer-two" style="background-image: url(/images/main-slider/circle-1.png)"></div>
+                    <div class="icon-layer-three" style="background-image: url(/images/main-slider/circle-2.png)"></div>
+                    <div class="icon-layer-four" style="background-image: url(/images/main-slider/circle-3.png)"></div>
+                    <div class="auto-container">
+                        <div class="row clearfix">
+
+                            <!-- Content Column -->
+                            <div class="content-column col-lg-7 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <h1>Medical Consulting <br> Offering Services</h1>
+                                    <div class="text">With Britain's largest network of private hospitals, <br> fast access to treatment</div>
+                                    <div class="btns-box">
+                                        <a href="about.html" class="theme-btn btn-style-one"><span class="txt">Explore all servicees</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Column -->
+                            <div class="image-column col-lg-5 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <div class="icon-layer-one" style="background-image: url(/images/main-slider/pattern-1.png)"></div>
+                                    <div class="image">
+                                        <img src="~/images/main-slider/content-image-1.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+                <div class="slide" style="        background-image: url(/Content/images/main-slider/image-1.jpg)">
+                    <div class="icon-layer-two" style="background-image: url(/images/main-slider/circle-1.png)"></div>
+                    <div class="icon-layer-three" style="background-image: url(/images/main-slider/circle-2.png)"></div>
+                    <div class="icon-layer-four" style="background-image: url(/images/main-slider/circle-3.png)"></div>
+                    <div class="auto-container">
+                        <div class="row clearfix">
+
+                            <!-- Content Column -->
+                            <div class="content-column col-lg-7 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <h1>Medical Consulting <br> Offering Services</h1>
+                                    <div class="text">With Britain's largest network of private hospitals, <br> fast access to treatment</div>
+                                    <div class="btns-box">
+                                        <a href="about.html" class="theme-btn btn-style-one"><span class="txt">Explore all servicees</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Column -->
+                            <div class="image-column col-lg-5 col-md-12 col-sm-12">
+                                <div class="inner-column">
+                                    <div class="icon-layer-one" style="background-image: url(/images/main-slider/pattern-1.png)"></div>
+                                    <div class="image">
+                                        <img src="~/images/main-slider/content-image-1.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Banner Section -->
+        <!-- Vision Section -->
+        <section class="vision-section">
+            <!-- Side Image -->
+            <div class="side-image">
+                <img src="~/Content/images/background/ContactUsBg.png" alt="" />
+            </div>
+            <div class="auto-container">
+                <div class="row clearfix">
+
+                    <!-- Title Column -->
+                    <div class="title-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <!-- Sec Title -->
+                            <div class="sec-title">
+                                <div class="title">Our Vision</div>
+                                <h2>To be a leading network </h2>
+                                <div class="text">in providing consulting services in the health and scientific field and to become a distinguished, reliable, and global centre that all our clients depend on to achieve their goals and develop their businesses. </div>
+                            </div>
+                            <div class="blocks-outer">
+
+                                <!-- Vision Block -->
+                                <div class="inner-column">
+                                    <!-- Sec Title -->
+                                    <div class="sec-title">
+                                        <div class="title">Our Message</div>
+                                        <h2>We are the partners of success </h2>
+                                        <div class="text">
+                                            Supporting all our customers and standing with them to raise the level of performance and quality and to overcome the largest number of risks they are facing or may face.
+                                            Under the slogan “We are the partners of success”.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Column -->
+                    <div class="appointment-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="icon-layer-one" style="background-image: url(/Content/images/icons/pattern-1.png)"></div>
+                        <div class="inner-column">
+                            <h3>Contact Us</h3>
+
+                            <!-- Appointment Form -->
+                            <div class="appointment-form">
+
+                                <!-- Appointment Form -->
+                                @Html.Action("Create", "ContactUs")
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="auto-container">
+                <!-- Sec Title -->
+                <div class="sec-title centered">
+                    <span class="icon"><span class="icon flaticon-Rich1"></span><span class="icon flaticon-Rich2"></span></span>
+                    <div class="title">what’s new</div>
+                    <h2>News & Updates</h2>
+                </div>
+                <div class="row clearfix">
+
+                    @foreach (var news in Model.News)
+                    {
+
+                        <!-- News Block -->
+                        <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                <div class="image">
+                                    <div class="category">Artical</div>
+                                    <a href="news-detail.html"><img src="~/images/@news.Image" alt="" /></a>
+                                </div>
+                                <div class="lower-content">
+                                    <ul class="post-meta">
+
+                                        <li>@news.CreationDate.Date.ToShortDateString()</li>
+                                    </ul>
+                                    <h4><a href="news-detail.html">@news.Title</a></h4>
+                                    <div class="text">@Html.Raw(!String.IsNullOrEmpty(news.Description) ? @Regex.Replace(news.Description, @"<[^>]*>", "").Substring(0, 100) : "<p></p>")</div>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Button Box -->
+                <div class="btns-box text-center">
+                    <a href="blog.html" class="theme-btn btn-style-one"><span class="txt">view all news</span></a>
+                </div>
+
+            </div>
+        </section>
+        <!-- End News Section -->
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="auto-container">
+                <!-- Sec Title -->
+                <div class="sec-title centered">
+                    <span class="icon"><span class="icon flaticon-Rich1"></span><span class="icon flaticon-Rich2"></span></span>
+                    <div class="title">Our Team</div>
+
+                </div>
+                <div class="team-carousel owl-carousel owl-theme">
+
+                    <!-- Team Block -->
+                    @foreach (var item in Model.teamMembers)
+                    {
+                        <div class="team-block">
+                            <div class="inner-box">
+                                <div class="circle-box"></div>
+                                <div class="image">
+                                    <a href="#"><img src="~/Images/@item.Image" alt="" /></a>
+                                </div>
+                                <div class="content">
+                                    <h4><a href="doctor-detail.html">@item.Name</a></h4>
+                                    <div class="designation">@item.Description</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </section>
+        <!-- End Team Section -->
+        <!-- Clients Section -->
+        <section class="clients-section">
+            <div class="auto-container">
+                <div class="sponsors-outer">
+                    <!--Sponsors Carousel-->
+                    <h3 class="title">Our Clients</h3>
+                    <ul class="sponsors-carousel owl-carousel owl-theme">
+                        @foreach (var client in Model.Clients)
+                        {
+                            <li class="slide-item"><figure class="image-box"><a href="#"><img src="~/images/@client.Image" alt=""></a></figure></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End Clients Section -->
+      @Html.Partial("_MainFooter")
+
+    </div>
+    <!--End pagewrapper-->
+    <!-- Color Palate / Color Switcher -->
+    <!-- Search Popup -->
+    <div class="search-popup">
+        <button class="close-search style-two"><span class="flaticon-multiply"></span></button>
+        <button class="close-search"><span class="fa fa-arrow-up"></span></button>
+        <form method="post" action="blog.html">
+            <div class="form-group">
+                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <!-- End Header Search -->
+    <!-- Scroll To Top -->
+    <div class="back-to-top scroll-to-target show-back-to-top" data-target="html">TOP</div>
+
+
+
+    <script src="~/Scripts/Public/jquery.js"></script>
+    <script src="~/Scripts/Public/popper.min.js"></script>
+    <script src="~/Scripts/Public/bootstrap.min.js"></script>
+    <script src="~/Scripts/Public/jquery.fancybox.js"></script>
+    <script src="~/Scripts/Public/appear.js"></script>
+    <script src="~/Scripts/Public/parallax.min.js"></script>
+    <script src="~/Scripts/Public/tilt.jquery.min.js"></script>
+    <script src="~/Scripts/Public/jquery.paroller.min.js"></script>
+    <script src="~/Scripts/Public/owl.js"></script>
+    <script src="~/Scripts/Public/wow.js"></script>
+    <script src="~/Scripts/Public/nav-tool.js"></script>
+    <script src="~/Scripts/Public/jquery-ui.js"></script>
+    <script src="~/Scripts/Public/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Scripts/Public/script.js"></script>
+    <script src="~/Scripts/Public/color-settings.js"></script>
+</body>
+</html>

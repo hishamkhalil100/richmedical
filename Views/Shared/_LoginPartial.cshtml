@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+@*@if (Request.IsAuthenticated)
+    {
+        using (Html.BeginRouteForm("Default", new { Action = "LogOff", Controller = "Account" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", "Default", htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.RouteLink("Register", "Default", new { Action = "Register", Controller = "Account" }, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.RouteLink("Log in", "Default", new { Action = "Login", Controller = "Account" }, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }*@
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginRouteForm("Default", new { Action = "LogOff", Controller = "Account" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li class="menu-divider hidden-xs">
+                <i class="fa fa-circle"></i>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
+                    <i class="fa fa-user mw30 br64 mr15"></i>
+                   @User.Identity.GetUserName()
+                    <span class="caret caret-tp hidden-xs"></span>
+                </a>
+                <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                    <li class="list-group-item">
+                        <a href="@Url.HttpRouteUrl("Default",new {Action= "Index",Controller= "Manage"})" class="animated animated-short fadeInUp">
+                            <span class="fa fa-gear"></span> Account Settings
+
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="@Url.HttpRouteUrl("Default",new {Action= "Register",Controller= "Account"})" class="animated animated-short fadeInUp">
+                            <span class="glyphicons glyphicons-user_add"></span> Add New User
+
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="javascript:document.getElementById('logoutForm').submit()" class="animated animated-short fadeInUp">
+                            <span class="fa fa-power-off"></span> Log off
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.RouteLink("Register", "Default", new { Action = "Register", Controller = "Account" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.RouteLink("Log in", "Default", new { Action = "Login", Controller = "Account" }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

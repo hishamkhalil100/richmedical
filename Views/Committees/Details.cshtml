@@ -1,0 +1,40 @@
+﻿@model richmedical.Models.Committee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<section class="services-detail-box">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="row clearfix">
+
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="icon-box">
+                            <span class="icon flaticon-team"></span>
+                        </div>
+                        <h1 style="font-size: 35px">@Model.Name</h1>
+                        <div class="text">@Model.Description</div>
+                        <!-- Quote Btn -->
+                        <div class="btn-box">
+                            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">book services</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="image">
+                            <img src="~/Images/@Model.Image" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,124 @@
+﻿@model richmedical.Areas.Admin.Data.HomeModelView
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row m20">
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","News")">
+            <div class="panel bg-alert light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="imoon imoon-newspaper"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.News</b>
+                    </h2>
+                    <h5 class="text-muted">News</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","Activities")">
+            <div class="panel bg-danger light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="glyphicons glyphicons-bullhorn"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.Activities</b>
+                    </h2>
+                    <h5 class="text-muted">Activities</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","Clients")">
+            <div class="panel bg-warning light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="glyphicons glyphicons-briefcase"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.Clients</b>
+                    </h2>
+                    <h5 class="text-muted">Clients</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row m20">
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","Staffs")">
+            <div class="panel bg-green light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="glyphicons glyphicons-user"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.Staffs</b>
+                    </h2>
+                    <h5 class="text-muted">Staffs</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","Specialties")">
+            <div class="panel bg-info light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="glyphicons glyphicons-certificate"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.Specialties</b>
+                    </h2>
+                    <h5 class="text-muted">Specialties</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","TeamMembers")">
+            <div class="panel bg-primary light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="fa fa-group"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.TeamMembers</b>
+                    </h2>
+                    <h5 class="text-muted">TeamMembers</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row m20">
+    <div class="col-sm-6 col-md-4">
+        <a href="@Url.Action("Index","Committees")">
+            <div class="panel bg-lightblue light of-h mb10" style="height: 150px">
+                <div class="pn pl20 p5">
+                    <div class="icon-bg">
+                        <i class="glyphicons glyphicons-bank"></i>
+                    </div>
+                    <h2 class="mt15 lh15">
+                        <b>@Model.Committees</b>
+                    </h2>
+                    <h5 class="text-muted">Committees</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+
+</div>

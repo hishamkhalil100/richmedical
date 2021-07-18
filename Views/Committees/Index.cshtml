@@ -1,0 +1,45 @@
+﻿
+@model IEnumerable<richmedical.Models.Committee>
+
+@{
+    ViewBag.Title = "Committees";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<section class="services-page-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @{
+                int couter = 1;
+                foreach (var item in Model)
+                {
+
+                   
+
+                    <!-- Service Block Two -->
+                    <div class="service-block-two col-lg-3 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="number-box">
+                                <div class="number">@couter</div>
+                            </div>
+                            <h4><a href="@Url.Action("Details","Committees",new {id= item.Id})">@item.Name</a></h4>
+                            @if (!string.IsNullOrEmpty(item.Description) && item.Description.Length > 100)
+                            {
+                                <div class="text">@item.Description.Substring(0, 100) ...</div>
+                            }
+                            else
+                            {
+                                <div class="text">@item.Description</div>
+                            }
+                        </div>
+                    </div>
+
+                    couter = couter + 1;
+                }
+            }
+            
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+﻿@model richmedical.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Content Side -->
+            <div class="content-side col-lg-12 col-md-12 col-sm-12">
+                <!--Blog Single-->
+                <div class="blog-single">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="~/Images/@Model.Image" alt="" />
+                        </div>
+                        <div class="lower-content">
+                            <h4>@Model.Title</h4>
+
+                            <div class="post-date">@Model.CreationDate.Date.ToShortDateString()</div>
+                            <div class="text">
+                                @Html.Raw(Model.Description)                             
+                                
+
+                               
+                            </div>
+                        </div>
+                    </div>
+
+           
+
+
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</div>
+

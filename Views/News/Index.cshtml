@@ -1,0 +1,52 @@
+﻿@using System.Text.RegularExpressions
+@using PagedList.Mvc
+@model PagedList.IPagedList<richmedical.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<!-- Blog Page Section -->
+<section class="blog-page-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach (var item in Model)
+            {
+                <!-- News Block -->
+                <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="image">
+                            <div class="category">Artical</div>
+                            <a href="@Url.Action("Details","News",new {id = item.Id})"><img src="~/Images/@item.Image" alt=""/></a>
+                        </div>
+                        <div class="lower-content">
+                            <ul class="post-meta">
+                               
+                                <li>@item.CreationDate.Date.ToShortDateString()</li>
+                              
+                            </ul>
+                            <h4 style="font-size: 21px"><a href="@Url.Action("Details","News",new {id = item.Id})">@item.Title</a></h4>
+                            <div class="text">@Html.Raw(!String.IsNullOrEmpty(item.Description) ? @Regex.Replace(item.Description, @"<[^>]*>", "").Substring(0, 100) : "<p></p>")</div>
+                            <a href="@Url.Action("Details","News",new {id = item.Id})" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+        <!-- Styled Pagination -->
+        <div class="styled-pagination text-center mb20">
+            
+
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+                new { page }))
+           
+        </div>
+        <
+
+    </div>
+</section>
+<!-- End Blog Page Section -->

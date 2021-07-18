@@ -1,0 +1,117 @@
+﻿@model richmedical.Models.Activity
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section id="content" class="table-layout animated fadeIn">
+    <div class="tray tray-center">
+        <div class="mw1000 center-block">
+            <div class="admin-form">
+                <div class="panel heading-border">
+                    <div class="panel-body bg-light">
+                        @using (Html.BeginForm("Create", "Activities", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="section-divider mb40" id="spy1">
+                                <span>Activity</span>
+                            </div>
+
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Name" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+
+                                            @Html.EditorFor(model => model.NameAr, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Arabic Name" } })
+                                            @Html.ValidationMessageFor(model => model.NameAr, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+
+                                        <label class="field prepend-icon append-button file">
+                                            <span class="button">Choose File</span>
+                                            <input type="file" class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;">
+                                            <input type="text" class="gui-input" id="uploader1" placeholder="Please Select A Logo">
+                                            <label class="field-icon">
+                                                <i class="fa fa-upload"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+
+                                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Description" } })
+                                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+
+                                            @Html.EditorFor(model => model.DescriptionAr, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Arabic Description" } })
+                                            @Html.ValidationMessageFor(model => model.DescriptionAr, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="panel-footer text-right">
+
+                                <button type="submit" class="button btn-primary"> Save </button>
+                                <button type="reset" class="button btn-primary"> Cancel </button>
+                                @Html.ActionLink("Back to List", "Index", null, new Dictionary<string, object> { { "class", "button btn-primary" } })
+
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
