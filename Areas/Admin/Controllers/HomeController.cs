@@ -24,7 +24,10 @@ namespace richmedical.Areas.Admin.Controllers
                 Committees = db.Committees.Count(),
                 Specialties = db.Specialties.Count(),
                 Staffs = db.Staffs.Count(),
-                TeamMembers = db.Staffs.Count()
+                TeamMembers = db.Staffs.Count(),
+                ContactUs = db.ContactUs.Count(),
+                Products =  db.Products.Count()
+
             };
             return View(modelView);
         }

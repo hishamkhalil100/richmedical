@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
-using richmedical.Helper;
 using richmedical.Models;
 
 namespace richmedical.Areas.Admin.Controllers
 {
-    [Authorize]
-    public class ActivitiesController : Controller
+    public class ContactUsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Admin/Activities
+        // GET: Admin/ContactUs
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
 
@@ -34,140 +31,124 @@ namespace richmedical.Areas.Admin.Controllers
                 searchString = currentFilter;
             }
             ViewBag.CurrentFilter = searchString;
-            var list = new List<Activity>();
+            var list = new List<ContactUs>();
             if (string.IsNullOrEmpty(searchString))
             {
-                list = db.Activities.ToList();
+                list = db.ContactUs.ToList();
             }
             else
             {
-                list = db.Activities.Where(s => s.Id.ToString().Contains(searchString) ||
-                                                s.Name.ToString().Contains(searchString) ||
-                                                s.NameAr.ToString().Contains(searchString) ||
-                                                s.Image.ToString().Contains(searchString) ||
-                                                s.Description.ToString().Contains(searchString) ||
-                                                s.DescriptionAr.ToString().Contains(searchString)).ToList();
+                list = db.ContactUs.Where(s => s.Id.ToString().Contains(searchString) || s.Name.ToString().Contains(searchString) || s.Phone.ToString().Contains(searchString) || s.Email.ToString().Contains(searchString) || s.Description.ToString().Contains(searchString) || s.CreationDate.ToString().Contains(searchString)).ToList();
             }
             switch (sortOrder)
             {
                 case "name_desc":
 
-                    list = new List<Activity>(list.OrderByDescending(s => s.Name));
+                    list = new List<ContactUs>(list.OrderByDescending(s => s.Name));
 
                     break;
-
+                default:
+                    list = new List<ContactUs>(list.OrderByDescending(s => s.CreationDate));
+                    break;
+                    
             }
-            int pageSize = 10;
+            int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(list.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Admin/Activities/Details/5
+        // GET: Admin/ContactUs/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ContactUs contactUs = db.ContactUs.Find(id);
+            if (contactUs == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(contactUs);
         }
 
-        // GET: Admin/Activities/Create
+        // GET: Admin/ContactUs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Activities/Create
+        // POST: Admin/ContactUs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Activity activity)
+        public ActionResult Create([Bind(Include = "Id,Name,Phone,Email,Description,CreationDate")] ContactUs contactUs)
         {
             if (ModelState.IsValid)
             {
-               
-
-                activity.Id = Guid.NewGuid();
-                activity.Image = CustomHelper.SaveImg(Request.Form["imgValue"], Server);
-                db.Activities.Add(activity);
+                contactUs.Id = Guid.NewGuid();
+                db.ContactUs.Add(contactUs);
                 db.SaveChanges();
-                //TempData["ActionMessage"]= "The Item Has Been Added Successfully";
                 return RedirectToAction("Index");
             }
 
-            return View(activity);
+            return View(contactUs);
         }
 
-        // GET: Admin/Activities/Edit/5
+        // GET: Admin/ContactUs/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ContactUs contactUs = db.ContactUs.Find(id);
+            if (contactUs == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(contactUs);
         }
 
-        // POST: Admin/Activities/Edit/5
+        // POST: Admin/ContactUs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Activity activity)
+        public ActionResult Edit([Bind(Include = "Id,Name,Phone,Email,Description,CreationDate")] ContactUs contactUs)
         {
             if (ModelState.IsValid)
             {
-                var dbActivity = db.Activities.Find(activity.Id);
-
-                CustomHelper.DeleteImg(dbActivity.Image, Server);
-                dbActivity.Description = activity.Description;
-                dbActivity.DescriptionAr = activity.DescriptionAr;
-                dbActivity.Image = CustomHelper.SaveImg(Request.Form["imgValue"], Server); 
-                dbActivity.Name = activity.Name;
-                dbActivity.NameAr = activity.NameAr;
-                db.Entry(dbActivity).State = EntityState.Modified;
+                db.Entry(contactUs).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(activity);
+            return View(contactUs);
         }
 
-        // GET: Admin/Activities/Delete/5
+        // GET: Admin/ContactUs/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            ContactUs contactUs = db.ContactUs.Find(id);
+            if (contactUs == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(contactUs);
         }
 
-        // POST: Admin/Activities/Delete/5
+        // POST: Admin/ContactUs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-
-            Activity activity = db.Activities.Find(id);
-            CustomHelper.DeleteImg(activity.Image, Server);
-            db.Activities.Remove(activity);
+            ContactUs contactUs = db.ContactUs.Find(id);
+            db.ContactUs.Remove(contactUs);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

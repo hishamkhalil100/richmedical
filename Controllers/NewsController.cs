@@ -21,7 +21,7 @@ namespace richmedical.Controllers
             return View(list.ToPagedList(pageNumber, pageSize));
          
         }
-        public ActionResult Details(Guid id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {

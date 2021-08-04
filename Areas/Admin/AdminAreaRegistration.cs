@@ -2,8 +2,10 @@
 
 namespace richmedical.Areas.Admin
 {
+    [Authorize]
     public class AdminAreaRegistration : AreaRegistration 
     {
+        
         public override string AreaName 
         {
             get 

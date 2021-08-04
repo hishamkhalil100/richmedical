@@ -18,6 +18,7 @@ namespace richmedical.Models
         public virtual DbSet<Specialty> Specialties { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<ContactUs> ContactUs { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         
         public static ApplicationDbContext Create()
         {
@@ -29,5 +30,7 @@ namespace richmedical.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Specialty>().HasMany<Staff>(s => s.Staffs).WithRequired(s => s.Specialty);
         }
+
+       
     }
 }

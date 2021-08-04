@@ -193,8 +193,10 @@
     <Compile Include="Areas\Admin\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClientsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommitteesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SpecialtiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaffsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TeamMembersController.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -249,6 +252,10 @@
     <Compile Include="Migrations\202107161904339_addContactUsTable.Designer.cs">
       <DependentUpon>202107161904339_addContactUsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107221406032_addProductsTable.cs" />
+    <Compile Include="Migrations\202107221406032_addProductsTable.Designer.cs">
+      <DependentUpon>202107221406032_addProductsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -259,6 +266,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Quote.cs" />
     <Compile Include="Models\Specialty.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -387,6 +395,7 @@
     <Content Include="Content\images\resource\vision-1.jpg" />
     <Content Include="Content\images\resource\vision-2.jpg" />
     <Content Include="Content\images\resource\vision-3.jpg" />
+    <Content Include="Content\Public\Images\Asset4.svg" />
     <Content Include="Content\Public\Images\Icons\businessman.svg" />
     <Content Include="Content\Public\Images\Background\2.jpg" />
     <Content Include="Content\Public\Images\Icons\pattern-5.png" />
@@ -565,6 +574,16 @@
     <Content Include="Areas\Admin\Views\Staffs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Staffs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Scripts\Admin\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -651,9 +670,13 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\Shared\_MainFooter.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Shared\_QuotationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\CountactUs\" />
     <Folder Include="Content\images\gallery\" />
   </ItemGroup>
   <ItemGroup>
@@ -699,6 +722,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107161904339_addContactUsTable.resx">
       <DependentUpon>202107161904339_addContactUsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221406032_addProductsTable.resx">
+      <DependentUpon>202107221406032_addProductsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

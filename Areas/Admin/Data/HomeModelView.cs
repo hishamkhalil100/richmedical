@@ -14,5 +14,7 @@ namespace richmedical.Areas.Admin.Data
         public int Specialties { get; set; }
         public int Staffs { get; set; }
         public int TeamMembers { get; set; }
+        public int ContactUs { get; set; }
+        public int Products { get; set; }
     }
 }

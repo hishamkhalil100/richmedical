@@ -25,6 +25,7 @@ namespace richmedical
                 "~/Scripts/Public/popper.min.js",
                 "~/Scripts/Public/appear.js",
                 "~/Scripts/Public/parallax.min.js",
+                "~/Scripts/Public/jquery.bootstrap-touchspin.js",
                 "~/Scripts/Public/owl.js",
                 "~/Scripts/Public/wow.js",
                 "~/Scripts/Public/nav-tool.js",

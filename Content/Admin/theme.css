@@ -25429,6 +25429,8 @@ a.bg-warning:hover {
 	color: #fef7f6;
 }
 
+
+
 a.bg-danger:hover {
 	background-color: #dc3519 !important;
 }
@@ -25645,6 +25647,83 @@ a.bg-white:hover {
 
 .bg-white.darker {
 	background-color: #E7E7E7;
+}
+
+.bg-green {
+	background-color: #56CC04 !important;
+	color: #ffffff;
+}
+a.bg-green:hover {
+	background-color: #56CC04 !important;
+}
+
+.bg-green .text-muted {
+	color: #fdccc4;
+}
+
+.bg-green .text-darken {
+	color: #56CC04;
+}
+
+.bg-green.light {
+	background-color: #56CC04 !important;
+}
+
+.bg-green.lighter {
+	background-color: #56CC04 !important;
+}
+
+.bg-green.dark {
+	background-color: #5DDC05 !important;
+}
+
+.bg-green.darker {
+	background-color: #56CC04 !important;
+}
+
+.bg-green .open > a,
+.bg-green .open > a:hover,
+.bg-green .open > a:focus {
+	color: #ffffff;
+}
+
+.bg-pink {
+	background-color: #D55AC9 !important;
+	color: #ffffff;
+}
+
+a.bg-pink:hover {
+	background-color: #D55AC9 !important;
+}
+
+.bg-pink .text-muted {
+	color: #fdccc4;
+}
+
+.bg-pink .text-darken {
+	color: #D55AC9;
+}
+
+.bg-pink.light {
+	background-color: #D55AC9 !important;
+}
+
+.bg-pink.lighter {
+	background-color: #D55AC9 !important;
+}
+
+.bg-pink.dark {
+	background-color: #D55AC9 !important;
+}
+
+.bg-pink.darker {
+	background-color: #D55AC9 !important;
+}
+
+.bg-pink .open > a,
+.bg-pink .open > a:hover,
+.bg-pink .open > a:focus {
+	color: #ffffff;
 }
 /* BADGES CONTEXTUALS
  * linked labels get darker on :hover

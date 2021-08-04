@@ -1,0 +1,115 @@
+﻿@model richmedical.Models.ContactUs
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+<section id="content" class="table-layout animated fadeIn">
+    <div class="tray tray-center">
+        <div class="mw1000 center-block">
+            <div class="admin-form">
+                <div class="panel heading-border">
+                    <div class="panel-body bg-light">
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="section-divider mb40" id="spy1">
+                                <span>ContactUs</span>
+                            </div>
+
+   
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+            
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "gui-input" , PlaceHolder = "Name"} })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+</label>
+</div></div>
+          
+</div>
+
+       
+
+        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+            
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "gui-input" , PlaceHolder = "Phone"} })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+</label>
+</div></div>
+          
+</div>
+
+       
+
+        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+            
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "gui-input" , PlaceHolder = "Email"} })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+</label>
+</div></div>
+          
+</div>
+
+       
+
+        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+            
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "gui-input" , PlaceHolder = "Description"} })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+</label>
+</div></div>
+          
+</div>
+
+       
+
+        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+            
+                @Html.EditorFor(model => model.CreationDate, new { htmlAttributes = new { @class = "gui-input" , PlaceHolder = "CreationDate"} })
+                @Html.ValidationMessageFor(model => model.CreationDate, "", new { @class = "text-danger" })
+</label>
+</div></div>
+          
+</div>
+
+       
+
+           <div class="panel-footer text-right">
+                            
+                                <button type="submit" class="button btn-primary"> Save </button>
+                                <button type="reset" class="button btn-primary"> Cancel </button>
+                                @Html.ActionLink("Back to List", "Index", null, new Dictionary<string, object> {{"class", "button btn-primary"}})
+
+                            </div>
+
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
